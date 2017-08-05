@@ -1,27 +1,37 @@
 {
-  "name": "coding-practice",
-  "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
-  "scripts": {
-    "build": "webpack"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/JoshMurph316/coding-practice.git"
-  },
-  "author": "Josh Murphy",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/JoshMurph316/coding-practice/issues"
-  },
-  "homepage": "https://github.com/JoshMurph316/coding-practice#readme",
-  "devDependencies": {
-    "babel-core": "^6.25.0",
-    "babel-loader": "^7.1.1",
-    "babel-polyfill": "^6.23.0",
-    "babel-preset-es2015": "^6.24.1",
-    "webpack": "^3.4.1",
-    "webpack-dev-server": "^2.6.1"
-  }
+    "name": "coding-practice",
+    "version": "1.0.0",
+    "description": "",
+    "main": "index.js",
+    "scripts": {
+        "build": "webpack",
+        "start": "webpack-dev-server"
+    },
+    "babel": {
+        "presets": [
+            "es2015",
+            "es2016",
+            "es2017"
+        ]
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/JoshMurph316/coding-practice.git"
+    },
+    "author": "Josh Murphy",
+    "license": "ISC",
+    "bugs": {
+        "url": "https://github.com/JoshMurph316/coding-practice/issues"
+    },
+    "homepage": "https://github.com/JoshMurph316/coding-practice#readme",
+    "devDependencies": {
+        "babel-core": "^6.25.0",
+        "babel-loader": "^7.1.1",
+        "babel-polyfill": "^6.23.0",
+        "babel-preset-es2015": "^6.24.1",
+        "babel-preset-es2016": "^6.24.1",
+        "babel-preset-es2017": "^6.24.1",
+        "webpack": "^3.4.1",
+        "webpack-dev-server": "^2.6.1"
+    }
 }
