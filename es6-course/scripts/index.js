@@ -1,5 +1,7 @@
 const fellowship = require('./modules');
 const fetch = require('../data-structures/fetch');
+const test = require('../../free-code-camp/projects/quote-machine/index');
+
 
 console.log(fellowship);
 //Templete Literals

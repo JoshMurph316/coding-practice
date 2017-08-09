@@ -65,61 +65,30 @@
 /************************************************************************/
 /******/ ([
 /* 0 */
-/***/ (function(module, exports, __webpack_require__) {
+/***/ (function(module, exports) {
 
-const fellowship = __webpack_require__(1);
-const fetch = __webpack_require__(2);
+let cardBtn = document.getElementById('newCard');
+let quoteDiv = document.getElementById('quote');
 
-console.log(fellowship);
-//Templete Literals
-let ding = 'world'
-let bingo = `hello ${ding}`;
-console.log(bingo);
 
-// Sread Operator
-let a = [20, 30, 40];
-let b = [10, ...a, 50];
-console.log(b); // [10, 20, 30, 40, 50]
+function getCard() {
+    // create new http object
+    let http = new XMLHttpRequest();
 
-// Rest Perameters
-function collect(...a) {
-    console.log(a);
+    http.onreadystatechange = () => {
+        if (http.readyState == 4 && http.status == 200) {
+            let card = JSON.parse(http.response);
+            let randomCard = card.cards[Math.floor(Math.random() * 100)]
+            console.log(card.cards[0]);
+            quoteDiv.innerHTML = `Card Name: ${randomCard.name}`;
+        }
+    };
+    // setup request
+    http.open("GET", "https://api.magicthegathering.io/v1/cards", true);
+    http.send();
 }
-collect(1, 2, 3, 4, 5); // [1, 2, 3, 4, 5]
 
-//Descructuring
-let z = [4, 5, 6];
-let [four, five] = z;
-console.log(four, five); // 4 5
-//********* */
-let king = { name: 'James', kids: 1 };
-let { name, kids } = king;
-console.log(name, kids); // James 1
-//********* */
-let son = { nameX: 'Simba', parents: 2 };
-let nameX, parents;
-({ nameX, parents } = son);
-console.log(nameX, parents);
-
-/***/ }),
-/* 1 */
-/***/ (function(module, exports) {
-
-const fellowship = ['Frodo', 'Sam', 'Gandalf'];
-
-module.exports = fellowship;
-
-/***/ }),
-/* 2 */
-/***/ (function(module, exports) {
-
-// fetching POST from https://jsonplaceholder.typicode.com/posts/1
-
-const root = 'https://jsonplaceholder.typicode.com/posts/1';
-
-module.exports = fetch(root, { method: "GET" })
-    .then(response => response.json())
-    .then(json => console.log(json));
+cardBtn.addEventListener('click', getCard);
 
 /***/ })
 /******/ ]);
